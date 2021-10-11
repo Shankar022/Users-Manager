@@ -4,7 +4,7 @@ import styles from './AddUser.module.css'
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 
-const AddUser = () => {
+const AddUser = (props) => {
     const [enteredUserName,setEnteredUserName] = useState('');
     const [enteredAge,setEnteredAge] = useState('');
 
@@ -20,9 +20,9 @@ const AddUser = () => {
             return;
         if(+enteredAge < 1)
             return;
+        props.onAddUser(enteredUserName,enteredAge);
         setEnteredUserName('');
         setEnteredAge('');
-        console.log(enteredUserName,enteredAge);
     }
     return (
         <Card className={styles.input}>
